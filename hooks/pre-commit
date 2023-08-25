@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "[INFO] Running the PreCommit Hook Script"
+echo "[INFO] Linting"
+
+# Check the Linting
+yarn lint
+exit_code=$?
+if [ $exit_code -eq 1 ]; then
+  echo "[ERR] Linting Failed. Please fix it first, Aborting commit..."
+  exit 1
+fi 
