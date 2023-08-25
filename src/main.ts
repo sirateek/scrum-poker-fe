@@ -10,6 +10,7 @@ import "@mdi/font/css/materialdesignicons.css";
 import "@/styles/style.css";
 import { Layout } from "@/layouts/layout";
 import NonLayout from "./layouts/non_layout/NonLayout.vue";
+import MainLayoutVue from "./layouts/main_layout/MainLayout.vue";
 
 const vuetify = createVuetify({
   components: {
@@ -35,4 +36,5 @@ app
   .use(router)
   .use(vuetify)
   .component(Layout.NonLayout, NonLayout)
+  .component(Layout.MainLayout, MainLayoutVue)
   .mount("#app");

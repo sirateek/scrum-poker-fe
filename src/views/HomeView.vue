@@ -1,13 +1,8 @@
 <template>
-  <div class="home h-full overflow-y-scroll">Test</div>
-  <div class="home h-full overflow-y-scroll">Test</div>
-  <div class="home h-full overflow-y-scroll">Test</div>
-  <div class="home h-full overflow-y-scroll">Test</div>
-  <div class="home h-full overflow-y-scroll">Test</div>
+  <v-card>Test</v-card>
 </template>
 
 <script lang="ts">
-import router from "@/router";
 import { defineComponent } from "vue";
 
 export default defineComponent({
