@@ -1,13 +1,18 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import PageNotFound from "@/views/errors/PageNotFound.vue";
-import { Layout } from "@/layouts/layout";
+import RoomView from "@/views/room/RoomView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "dashboard",
     component: HomeView,
+  },
+  {
+    path: "/room",
+    name: "room",
+    component: RoomView,
   },
   {
     path: "/:pathMatch(.*)*",
