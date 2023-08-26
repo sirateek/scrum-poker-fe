@@ -29,13 +29,34 @@
         </InformationBoard>
 
         <InformationBoard title="Player">
-          <div>
-            <VIcon icon="mdi-eye"></VIcon>
-            Spectator x 5
+          <div class="w-full flex flex-col gap-2 justify-start">
+            <div class="flex flex-row">
+              <div>
+                <VIcon icon="mdi-eye"></VIcon>
+                Spectator
+              </div>
+              <VSpacer></VSpacer>
+              <div>5</div>
+            </div>
+            <VDivider></VDivider>
           </div>
-          <div v-for="i in 30" :key="i">
-            <VIcon icon="mdi-account"></VIcon>
-            Tonnam
+
+          <div
+            v-for="i in 15"
+            :key="i"
+            class="w-full flex flex-col gap-2 justify-start"
+          >
+            <div class="flex flex-row">
+              <div>
+                <VIcon icon="mdi-account"></VIcon>
+                Tonnam
+              </div>
+              <VSpacer></VSpacer>
+              <div>
+                <VIcon icon="mdi-check"></VIcon>
+              </div>
+            </div>
+            <VDivider></VDivider>
           </div>
         </InformationBoard>
       </div>
