@@ -1,6 +1,6 @@
 <template>
   <div class="relative aspect-[1/1.5] max-w-[130px] max-h-[200px]">
-    <VCard color="#5C8984" class="rounded-xl h-full w-full z-10">
+    <VCard color="#5C8984" class="rounded-lg h-full w-full z-10">
       <div class="flex items-center justify-center h-full w-full p-3">
         <p :class="textClasses">
           {{ value }}

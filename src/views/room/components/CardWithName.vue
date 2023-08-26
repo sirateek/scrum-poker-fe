@@ -2,7 +2,7 @@
   <Card :value="value">
     <template v-slot:below>
       <div class="absolute z-0 w-full bottom-0">
-        <VCard class="rounded-2xl" color="#BE8C63">
+        <VCard class="rounded-lg" color="#BE8C63">
           <div class="pt-15"></div>
           <p class="truncate mx-3">{{ name }}</p>
         </VCard>
