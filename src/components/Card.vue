@@ -1,6 +1,6 @@
 <template>
   <div class="relative aspect-[1/1.5] max-w-[130px] max-h-[200px]">
-    <VCard color="#5C8984" class="rounded-lg h-full w-full z-10">
+    <VCard :color="color" class="rounded-lg h-full w-full z-10">
       <div class="flex items-center justify-center h-full w-full p-3">
         <p :class="textClasses">
           {{ value }}
@@ -28,6 +28,10 @@ export default defineComponent({
     textSize: {
       type: String,
       default: "text-3xl",
+    },
+    color: {
+      type: String,
+      default: "#5C8984",
     },
   },
   setup(props) {

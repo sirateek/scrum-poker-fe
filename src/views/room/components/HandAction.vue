@@ -12,11 +12,11 @@
     >
       <div
         :class="cardClass(i)"
-        v-for="i in 20"
+        v-for="i in 11"
         :key="i"
         @click="updatePickedIndex(i)"
       >
-        <Card value="10" text-size="text-lg"></Card>
+        <Card :color="cardColor(i)" value="10" text-size="text-lg"></Card>
       </div>
     </div>
   </div>
@@ -42,15 +42,24 @@ export default defineComponent({
     };
 
     const cardClass = (pickedIndex: number) => {
-      if (pickedIndex != attributes.pickedIndex) {
-        return "w-20 hover:-translate-y-4 duration-150";
+      if (pickedIndex !== attributes.pickedIndex) {
+        return "w-20 hover:-translate-y-4 duration-150 cursor-pointer";
       }
 
-      return "w-20 -translate-y-4 duration-150";
+      return "w-20 -translate-y-4 duration-150 cursor-pointer";
+    };
+
+    const cardColor = (pickedIndex: number) => {
+      if (pickedIndex !== attributes.pickedIndex) {
+        return "#2C3333";
+      }
+
+      return "white";
     };
 
     return {
       cardClass,
+      cardColor,
       updatePickedIndex,
     };
   },
