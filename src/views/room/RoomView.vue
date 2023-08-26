@@ -1,7 +1,12 @@
 <template>
   <div class="mx-8">
     <div class="grid grid-cols-8 gap-4">
-      <CardWithName v-for="i in 10" :key="i" value="3"></CardWithName>
+      <CardWithName
+        v-for="i in 10"
+        :key="i"
+        value="3"
+        name="TonnamTest"
+      ></CardWithName>
     </div>
   </div>
 </template>
