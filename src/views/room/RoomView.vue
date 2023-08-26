@@ -2,9 +2,11 @@
   <div class="mx-8">
     <!-- Display -->
     <div class="flex flex-row max-h-[65vh]">
-      <div class="grid grid-cols-5 w-full gap-4 overflow-y-scroll">
+      <div
+        class="grid grid-cols-[repeat(auto-fit,14%)] justify-center items-center w-full gap-4 overflow-y-scroll"
+      >
         <CardWithName
-          v-for="i in 20"
+          v-for="i in 1"
           :key="i"
           value="3"
           name="TonnamTest"
@@ -51,21 +53,7 @@
 
     <!-- Hand -->
     <div class="h-[25vh] w-full flex flex-col">
-      <!-- Card Selection -->
-
-      <div class="items-start text-left">Test</div>
-
-      <div
-        class="grid grid-rows-1 grid-flow-col gap-4 w-full h-full overflow-x-scroll pt-4"
-      >
-        <div
-          class="w-20 hover:-translate-y-4 duration-150"
-          v-for="i in 20"
-          :key="i"
-        >
-          <Card value="10" text-size="text-lg"></Card>
-        </div>
-      </div>
+      <HandAction></HandAction>
     </div>
   </div>
 </template>
@@ -74,11 +62,13 @@
 import { defineComponent } from "vue";
 import CardWithName from "./components/CardWithName.vue";
 import Card from "@/components/Card.vue";
+import HandAction from "@/views/room/components/HandAction.vue";
 
 export default defineComponent({
   name: "RoomView",
   components: {
     Card,
+    HandAction,
     CardWithName,
   },
 });
