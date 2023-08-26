@@ -7,8 +7,8 @@
         </p>
       </div>
     </VCard>
-    <div v-if="hasSlot('below')" class="pt-7">
-      <slot name="below"></slot>
+    <div v-if="hasSlot('footerAbsolute')" class="pt-7">
+      <slot name="footerAbsolute"></slot>
     </div>
   </div>
 </template>
