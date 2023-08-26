@@ -1,14 +1,26 @@
 <template>
   <div>
-    <div class="items-start text-left mt-3">
-      <VBtn class="normal-case">Flip My Card</VBtn>
-      <VBtn>Test</VBtn>
-      <VBtn>Test</VBtn>
+    <div class="items-start text-left mt-3 flex flex-wrap gap-3">
+      <VBtn variant="tonal" class="normal-case" prepend-icon="mdi-cards-variant"
+        >Pull my card out from table</VBtn
+      >
+      <VBtn variant="tonal" class="normal-case" prepend-icon="mdi-eye-off"
+        >Hide my Card</VBtn
+      >
+      <VBtn variant="tonal" class="normal-case" prepend-icon="mdi-cards"
+        >Flip All Cards on the Table</VBtn
+      >
+      <VBtn variant="tonal" class="normal-case" prepend-icon="mdi-reload"
+        >Clear Table</VBtn
+      >
+      <VBtn variant="tonal" class="normal-case" prepend-icon="mdi-door"
+        >Switch to be Spectator</VBtn
+      >
     </div>
 
     <!-- Card Selection -->
     <div
-      class="grid grid-rows-1 grid-flow-col gap-4 w-full h-full overflow-x-scroll pt-4"
+      class="grid grid-rows-1 grid-flow-col gap-4 w-full h-full overflow-x-scroll pt-4 mt-4"
     >
       <div
         :class="cardClass(i)"
