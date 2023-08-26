@@ -69,11 +69,36 @@ export default defineComponent({
       return "white";
     };
 
+    const keyboardEventHandler = (e: KeyboardEvent) => {
+      if (attributes.pickedIndex === -1) {
+        return;
+      }
+      if (e.key === "ArrowLeft" || e.key === "a") {
+        if (attributes.pickedIndex <= 0) {
+          return;
+        }
+        attributes.pickedIndex--;
+      } else if (e.key === "ArrowRight" || e.key === "d") {
+        if (attributes.pickedIndex >= 11) {
+          return;
+        }
+        attributes.pickedIndex++;
+      }
+    };
+
     return {
+      attributes,
       cardClass,
       cardColor,
       updatePickedIndex,
+      keyboardEventHandler,
     };
+  },
+  created() {
+    window.addEventListener("keydown", this.keyboardEventHandler);
+  },
+  beforeUnmount() {
+    window.removeEventListener("keydown", this.keyboardEventHandler);
   },
 });
 </script>
