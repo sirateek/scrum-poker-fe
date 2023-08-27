@@ -1,4 +1,4 @@
-# global-admin-portal
+# scrum-poker-fe
 
 This project use Vue.JS 3 with Vite.
 
