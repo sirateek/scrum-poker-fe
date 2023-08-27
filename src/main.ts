@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, h, provide } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "vuetify/styles";
@@ -11,6 +11,13 @@ import "@/styles/style.css";
 import { Layout } from "@/layouts/layout";
 import NonLayout from "./layouts/non_layout/NonLayout.vue";
 import MainLayoutVue from "./layouts/main_layout/MainLayout.vue";
+import { ConfigProvider } from "./utils/ConfigProvider";
+import {
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+} from "@apollo/client/core";
+import { DefaultApolloClient } from "@vue/apollo-composable";
 
 const vuetify = createVuetify({
   components: {
@@ -29,12 +36,33 @@ const vuetify = createVuetify({
   },
 });
 
-const app = createApp(App);
+// Create Apollo Clients
+const httpLink = createHttpLink({
+  uri: ConfigProvider.instance.config.VITE_TASK_API_HOST,
+});
+
+// Cache implementation
+const cache = new InMemoryCache();
+
+// Create the apollo client
+const pokerServiceClient = new ApolloClient({
+  link: httpLink,
+  cache,
+});
+
+let vueApp = createApp({
+  setup() {
+    provide(DefaultApolloClient, pokerServiceClient);
+  },
+  render: () => h(App),
+});
 
 // Create Vue Application
-app
+vueApp
   .use(router)
   .use(vuetify)
   .component(Layout.NonLayout, NonLayout)
-  .component(Layout.MainLayout, MainLayoutVue)
-  .mount("#app");
+  .component(Layout.MainLayout, MainLayoutVue);
+
+// Mount
+vueApp.mount("#app");

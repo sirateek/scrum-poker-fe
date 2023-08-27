@@ -75,6 +75,9 @@ import CardWithName from "./components/CardWithName.vue";
 import Card from "@/components/Card.vue";
 import HandAction from "@/views/room/components/HandAction.vue";
 import InformationBoard from "./components/InformationBoard.vue";
+import { gql } from "@apollo/client";
+import { useQuery } from "@vue/apollo-composable";
+import { Query } from "@/graphql/generated/graphql";
 
 export default defineComponent({
   name: "RoomView",
@@ -83,6 +86,23 @@ export default defineComponent({
     HandAction,
     CardWithName,
     InformationBoard,
+  },
+  setup() {
+    const queryTest = gql`
+      {
+        getAvailableDecks {
+          Name
+          Cards {
+            Index
+            DisplayValue
+          }
+        }
+      }
+    `;
+
+    const { result, variables } = useQuery<Query, Query>(queryTest, {});
+
+    console.log(result.value?.getAvailableDecks);
   },
 });
 </script>
