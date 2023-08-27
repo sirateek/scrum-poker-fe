@@ -50,7 +50,7 @@ const pokerServiceClient = new ApolloClient({
   cache,
 });
 
-let vueApp = createApp({
+const vueApp = createApp({
   setup() {
     provide(DefaultApolloClient, pokerServiceClient);
   },
