@@ -26,6 +26,7 @@ module.exports = {
     ],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "no-async-promise-executor": "off",
   },
   overrides: [
     {

@@ -3,6 +3,8 @@ import HomeView from "@/views/HomeView.vue";
 import PageNotFound from "@/views/errors/PageNotFound.vue";
 import RoomView from "@/views/room/RoomView.vue";
 import ServerDisconnected from "@/views/errors/ServerDisconnected.vue";
+import { Layout } from "@/layouts/layout";
+import RegisterView from "@/views/player/RegisterView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -16,9 +18,18 @@ const routes: Array<RouteRecordRaw> = [
     component: RoomView,
   },
   {
+    path: "/player/register",
+    name: "RegisterView",
+    component: RegisterView,
+    meta: {},
+  },
+  {
     path: "/server/disconnected",
     name: "ServerDisconnected",
     component: ServerDisconnected,
+    meta: {
+      layout: Layout.NonLayout,
+    },
   },
   {
     path: "/:pathMatch(.*)*",

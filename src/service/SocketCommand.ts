@@ -1,15 +1,22 @@
 import { socketProvider } from "@/utils/SocketProvider";
+import { Command, RegisterPlayer } from "@/models/command";
 
 export enum CommandPrefix {
-  Register = "Register",
+  Register = "REGISTER",
 }
 
 class SocketCommand {
   registerPlayer(name: string) {
-    const baseCommand = "RegisterPlayer";
-    socketProvider.sendMessage(`${baseCommand},${name}`);
+    const command: Command<RegisterPlayer> = {
+      command: CommandPrefix.Register,
+      attributes: {
+        name: name,
+      },
+    };
+
+    socketProvider.sendMessage(JSON.stringify(command));
   }
 }
 
-const sockerCommand = new SocketCommand();
-export { sockerCommand };
+const socketCommand = new SocketCommand();
+export { socketCommand };
