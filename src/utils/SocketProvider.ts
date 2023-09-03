@@ -1,4 +1,3 @@
-import { Command } from "@/models/command";
 import { ConfigProvider } from "./ConfigProvider";
 import { EventKey, eventBusFactory } from "./EventBusFactory";
 import { loggingProvider } from "./LoggingProvider";
@@ -27,7 +26,7 @@ class SocketProvider {
       ConfigProvider.instance.config.VITE_POKER_WS_HOST + "/ws"
     );
 
-    this._socket.onopen = (_) => {
+    this._socket.onopen = () => {
       loggingProvider.log("Connected to the server");
       this._isConnected = true;
       eventBusFactory.eventBus.emit(EventKey.ServerConnected);

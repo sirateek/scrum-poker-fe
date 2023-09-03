@@ -18,12 +18,6 @@ import {
   InMemoryCache,
 } from "@apollo/client/core";
 import { DefaultApolloClient } from "@vue/apollo-composable";
-import { socketProvider } from "./utils/SocketProvider";
-import {
-  LocalStorageKey,
-  localStorageProvider,
-} from "./utils/LocalStorageProvider";
-import { loggingProvider } from "./utils/LoggingProvider";
 
 const vuetify = createVuetify({
   components: {
