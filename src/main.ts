@@ -18,6 +18,12 @@ import {
   InMemoryCache,
 } from "@apollo/client/core";
 import { DefaultApolloClient } from "@vue/apollo-composable";
+import { socketProvider } from "./utils/SocketProvider";
+import {
+  LocalStorageKey,
+  localStorageProvider,
+} from "./utils/LocalStorageProvider";
+import { loggingProvider } from "./utils/LoggingProvider";
 
 const vuetify = createVuetify({
   components: {
@@ -38,7 +44,7 @@ const vuetify = createVuetify({
 
 // Create Apollo Clients
 const httpLink = createHttpLink({
-  uri: ConfigProvider.instance.config.VITE_TASK_API_HOST,
+  uri: ConfigProvider.instance.config.VITE_POKER_API_HOST + "/query",
 });
 
 // Cache implementation

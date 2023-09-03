@@ -29,8 +29,45 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { EventKey, eventBusFactory } from "@/utils/EventBusFactory";
+import { socketProvider } from "@/utils/SocketProvider";
+import router from "@/router";
 
 export default defineComponent({
   name: "MainLayout",
+  setup() {
+    socketProvider;
+
+    const onServerConnected = () => {
+      console.log("Server Connected");
+    };
+
+    const onServerDisconnected = () => {
+      router.push({
+        name: "ServerDisconnected",
+      });
+    };
+    eventBusFactory.eventBus.on(
+      EventKey.ServerDisconnected,
+      onServerDisconnected
+    );
+
+    eventBusFactory.eventBus.on(EventKey.ServerConnected, onServerConnected);
+
+    return {
+      onServerConnected,
+      onServerDisconnected,
+    };
+  },
+  beforeUnmount() {
+    eventBusFactory.eventBus.off(
+      EventKey.ServerConnected,
+      this.onServerConnected
+    );
+    eventBusFactory.eventBus.off(
+      EventKey.ServerDisconnected,
+      this.onServerDisconnected
+    );
+  },
 });
 </script>
