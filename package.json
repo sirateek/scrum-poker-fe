@@ -32,7 +32,7 @@
     "graphql-tag": "^2.12.6",
     "mitt": "^3.0.1",
     "moment-timezone": "^0.5.41",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.31",
     "tailwindcss": "^3.2.7",
     "v-calendar": "^3.0.3",
     "vue": "^3.2.13",
